@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-xs-12 col-md-3">
+    <div class="thumbnail">
+      <%= image_tag(current_user.image , :size => "242x200") %>
+      <div class="caption">
+        <h3>名前: <%= current_user.name %></h3>
+        <h4>年齢: <%= current_user.age %>歳</h4>
+        <h4>国籍: <%= current_user.nationality %></h4>
+        <h4>職業: <%= current_user.job %></h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-9">
+    <h3>保有資産</h3>
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <%= form_for current_user do |f| %>
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :cash, placeholder:"Cash", class:"form-control input-lg", value: number_with_delimiter(current_user.cash) %>
+            <div class="input-group-addon">万円</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :stock,placeholder:"Stock", class:"form-control input-lg" , value: number_with_delimiter(current_user.stock)%>
+            <div class="input-group-addon" >万円</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :bond,placeholder:"Bond", class:"form-control input-lg", value: number_with_delimiter(current_user.bond) %>
+            <div class="input-group-addon">万円</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :realestate,placeholder:"RealEstate", class:"form-control input-lg", value: number_with_delimiter(current_user.realestate) %>
+            <div class="input-group-addon">万円</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :comodity,placeholder:"Comodity", class:"form-control input-lg", value: number_with_delimiter(current_user.comodity) %>
+            <div class="input-group-addon">万円</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :others,placeholder:"Others", class:"form-control input-lg", value: number_with_delimiter(current_user.others) %>
+            <div class="input-group-addon">万円</div>
+          </div>
+        </div>
+        <%= f.submit '保有資産情報更新', :name => 'update' ,class: 'btn btn-block btn-big btn-red'%>
+        <% end %>
+
+      </div>
+
+      <div class="col-xs-12 col-md-9">
+        <%= pie_chart @data %>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

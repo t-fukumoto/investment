@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Investment</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+
+
+<div class="<%= show_container %>" >
+  <%= yield %>
+</div>
+
+</body>
+</html
+
+          <% @ranking.each.with_index(1) do |product, i| %>
